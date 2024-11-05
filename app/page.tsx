@@ -4,14 +4,17 @@ import UserTable from "./components/user-table";
 import { getUsers } from "./lib/actions";
 
 export default async function Home() {
-  const users = await getUsers()
+  const users = await getUsers();
 
   return (
     <div>
-      <main className="flex flex-col">
-        <h1>Formulario Example</h1>    
-        <UserForm /> 
-        <UserTable users={users} />   
+      <main className="flex flex-col p-8">
+        <h1>Formulario Example</h1>
+        <hr />
+        <div className="flex w-full">
+          <UserForm />
+          <UserTable users={users} />
+        </div>
       </main>
     </div>
   );

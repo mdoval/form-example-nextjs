@@ -2,7 +2,7 @@ import React from "react";
 
 const UserTable = ({ users }: { users: User[] }) => {
   return (
-    <div className="relative overflow-hidden shadow-md rounded-lg">
+    <div className="relative overflow-hidden shadow-lg rounded-lg w-1/2 m-3">
       <table className="table-fixed w-full text-left">
         <thead className="uppercase bg-[#6b7280] text-[#e5e7eb]">
           <tr>
