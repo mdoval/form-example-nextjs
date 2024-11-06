@@ -1,6 +1,6 @@
 import React from "react";
 import SubmitButton from "./submit-button";
-import { createUser } from "../lib/actions";
+import { createUser } from "../../lib/actions";
 
 const UserForm = () => {
   return (

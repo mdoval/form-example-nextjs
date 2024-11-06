@@ -2,22 +2,26 @@ import React from "react";
 
 const UserTable = ({ users }: { users: User[] }) => {
   return (
-    <div className="relative overflow-hidden shadow-lg rounded-lg w-1/2 m-3">
-      <table className="table-fixed w-full text-left">
+    <div className="shadow-lg rounded-lg w-full m-3">
+      <table className="w-full text-left">
         <thead className="uppercase bg-[#6b7280] text-[#e5e7eb]">
           <tr>
-            <td className="py-1 border text-center p-4">#</td>
-            <td className="py-1 border text-center p-4">NOMBRE</td>
-            <td className="py-1 border text-center p-4">APELLIDO</td>
+            <td className="border text-center pt-2 pb-2 pr-2 pl-2">#</td>
+            <td className="border text-center pt-2 pb-2">NOMBRE</td>
+            <td className="border text-center pt-2 pb-2">APELLIDO</td>
+            <td className="border text-center pt-2 pb-2">EMAIL</td>
+            <td className="border text-center pt-2 pb-2">EDAD</td>
           </tr>
         </thead>
         <tbody className="bg-white text-gray-500 bg-[#FFFFFF] text-[#6b7280]">
           {users.map((user, index) => {
             return (
               <tr className="py-5" key={index}>
-                <td className=" py-5 border text-center p-4">{index}</td>
-                <td className=" py-5 border text-center p-4">{user.nombre}</td>
-                <td className=" py-5 border text-center p-4">{user.apellido}</td>
+                <td className="border text-center pt-2 pb-2 pr-2 pl-2 ">{index}</td>
+                <td className="border text-center pt-2 pb-2">{user.nombre}</td>
+                <td className="border text-center pt-2 pb-2">{user.apellido}</td>
+                <td className="border text-center pt-2 pb-2">{user.email}</td>
+                <td className="border text-center pt-2 pb-2">{user.edad}</td>
               </tr>
             );
           })}
