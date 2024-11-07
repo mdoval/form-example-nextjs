@@ -1,10 +1,17 @@
+"use client";
+
 import React from "react";
 import SubmitButton from "./submit-button";
 import { createUser } from "../../lib/actions";
+import { useFormState } from "react-dom";
+
+const initialState = "";
 
 const UserForm = () => {
+  const [state, handleSubmit] = useFormState(createUser, initialState);
+
   return (
-    <form action={createUser} className="w-1/2 border p-4 m-3 shadow-lg">
+    <form action={handleSubmit} className="w-1/2 border p-4 m-3 shadow-lg">
       <div className="p-4 space-y-3">
         <div className="flex space-x-3">
           <label className="form-control w-full max-w-xs">
@@ -35,7 +42,7 @@ const UserForm = () => {
         </div>
 
         <div>
-        <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full max-w-xs">
             <div className="label">
               <span className="label-text">Email</span>
             </div>
@@ -49,9 +56,8 @@ const UserForm = () => {
           </label>
         </div>
 
-
         <div>
-        <label className="form-control w-full max-w-xs">
+          <label className="form-control w-full max-w-xs">
             <div className="label">
               <span className="label-text">Edad</span>
             </div>
@@ -93,7 +99,26 @@ const UserForm = () => {
           </label>
         </div>
 
-        <div className="text-left"><SubmitButton /></div>
+        <div className="text-left">
+          <SubmitButton />
+        </div>
+      </div>
+
+      <div role="alert" className="alert alert-error">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 shrink-0 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>{initialState}</span>
       </div>
     </form>
   );

@@ -1,5 +1,6 @@
 'use server'
 
+import { User } from "@/types/user"
 import { revalidatePath } from "next/cache"
 
 let users: User[] = [
@@ -12,7 +13,7 @@ export async function getUsers():  Promise<User[]> {
     return users
 }
 
-export async function createUser(formData: FormData) {
+export async function createUser(prevState: string, formData: FormData) {
     const user: User = {
         nombre: formData.get("nombre") as string,
         apellido: formData.get("apellido") as string,
@@ -21,6 +22,7 @@ export async function createUser(formData: FormData) {
         password: formData.get("password") as string
     }
     users.push(user)  
-    console.log(users)  
+    console.log(users) 
+    return { message: 'Please enter a valid email' }
     revalidatePath("/")
 }
