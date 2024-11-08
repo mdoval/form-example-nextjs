@@ -1,14 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useActionState } from "react";
 import SubmitButton from "./submit-button";
 import { createUser } from "../../lib/actions";
-import { useFormState } from "react-dom";
 
-const initialState = "";
+//const initialState = { message: "" };
 
 const UserForm = () => {
-  const [state, handleSubmit] = useFormState(createUser, initialState);
+  const [data, handleSubmit, isPending] = useActionState(createUser, undefined);
 
   return (
     <form action={handleSubmit} className="w-1/2 border p-4 m-3 shadow-lg">
@@ -68,6 +67,9 @@ const UserForm = () => {
               placeholder="Escriba aqui"
               className="input input-bordered w-full max-w-xs"
             />
+            <div className="label">
+              <span className="label-text-alt text-red-600 font-bold"></span>
+            </div>
           </label>
         </div>
 
@@ -118,7 +120,7 @@ const UserForm = () => {
             d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <span>{initialState}</span>
+        <span>{JSON.stringify(data?.errors)}</span>
       </div>
     </form>
   );

@@ -1,5 +1,6 @@
 'use server'
 
+import { UserSchema } from "@/schemas/userSchema"
 import { User } from "@/types/user"
 import { revalidatePath } from "next/cache"
 
@@ -13,7 +14,9 @@ export async function getUsers():  Promise<User[]> {
     return users
 }
 
-export async function createUser(prevState: string, formData: FormData) {
+export async function createUser(prevState: unknown, formData: FormData) {
+    const data = Object.fromEntries(formData.entries());
+
     const user: User = {
         nombre: formData.get("nombre") as string,
         apellido: formData.get("apellido") as string,
@@ -21,8 +24,14 @@ export async function createUser(prevState: string, formData: FormData) {
         edad: parseInt(formData.get("edad") as string),
         password: formData.get("password") as string
     }
+
+    const result = UserSchema.safeParse(user)
+    if (!result.success) {
+        return {
+          errors: result.error.format(),
+        };
+      }
+    return { success: true, data };
     users.push(user)  
-    console.log(users) 
-    return { message: 'Please enter a valid email' }
     revalidatePath("/")
 }
