@@ -1,7 +1,4 @@
-export interface User {
-    nombre: string,
-    apellido: string,
-    email: string,
-    edad: number,
-    password: string,
-}
+import { UserSchema } from "@/schemas/userSchema";
+import { z } from "zod";
+
+export  type User = z.infer<typeof UserSchema>

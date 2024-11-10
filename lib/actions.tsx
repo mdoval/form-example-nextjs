@@ -31,7 +31,7 @@ export async function createUser(prevState: unknown, formData: FormData) {
           errors: result.error.format(),
         };
       }
-    return { success: true, data };
+//    return { success: true, data };
     users.push(user)  
     revalidatePath("/")
 }
