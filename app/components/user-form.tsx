@@ -101,17 +101,17 @@ const UserForm = () => {
 
           <label className="form-control w-full max-w-xs">
             <div className="label">
-              <span className="label-text">Repetir Contraseña</span>
+              <span className="label-text">Contraseña</span>
             </div>
             <input
-              id="confirm-password"
-              name="confirm-password"
+              id="confirmPassword"
+              name="confirmPassword"
               type="password"
               placeholder="Escriba aqui"
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.password?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.confirmPassword?._errors}</span>
             </div>
           </label>
         </div>
