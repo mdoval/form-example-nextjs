@@ -1,4 +1,6 @@
 import React from "react";
+import DeleteButton from "./delete-button";
+import { User } from "@/types/user";
 
 const UserTable = ({ users }: { users: User[] }) => {
   return (
@@ -11,6 +13,7 @@ const UserTable = ({ users }: { users: User[] }) => {
             <td className="border text-center pt-2 pb-2">APELLIDO</td>
             <td className="border text-center pt-2 pb-2">EMAIL</td>
             <td className="border text-center pt-2 pb-2">EDAD</td>
+            <td className="border text-center pt-2 pb-2">ACCIONES</td>
           </tr>
         </thead>
         <tbody className="bg-white text-gray-500 bg-[#FFFFFF] text-[#6b7280]">
@@ -22,6 +25,7 @@ const UserTable = ({ users }: { users: User[] }) => {
                 <td className="border text-center pt-2 pb-2">{user.apellido}</td>
                 <td className="border text-center pt-2 pb-2">{user.email}</td>
                 <td className="border text-center pt-2 pb-2">{user.edad}</td>
+                <td className="border text-center pt-2 pb-2"><DeleteButton id={index} /></td>
               </tr>
             );
           })}

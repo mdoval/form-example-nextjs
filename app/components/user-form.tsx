@@ -25,7 +25,9 @@ const UserForm = () => {
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.nombre?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">
+                {data?.errors?.nombre?._errors}
+              </span>
             </div>
           </label>
 
@@ -41,7 +43,9 @@ const UserForm = () => {
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.apellido?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">
+                {data?.errors?.apellido?._errors}
+              </span>
             </div>
           </label>
         </div>
@@ -59,7 +63,9 @@ const UserForm = () => {
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.email?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">
+                {data?.errors?.email?._errors}
+              </span>
             </div>
           </label>
         </div>
@@ -77,7 +83,9 @@ const UserForm = () => {
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.edad?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">
+                {data?.errors?.edad?._errors}
+              </span>
             </div>
           </label>
         </div>
@@ -95,7 +103,9 @@ const UserForm = () => {
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.password?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">
+                {data?.errors?.password?._errors}
+              </span>
             </div>
           </label>
 
@@ -111,7 +121,9 @@ const UserForm = () => {
               className="input input-bordered w-full max-w-xs"
             />
             <div className="label">
-              <span className="label-text-alt text-red-600 font-bold">{data?.errors?.confirmPassword?._errors}</span>
+              <span className="label-text-alt text-red-600 font-bold">
+                {data?.errors?.confirmPassword?._errors}
+              </span>
             </div>
           </label>
         </div>
