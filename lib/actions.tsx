@@ -32,8 +32,6 @@ export async function getUsers(): Promise<Object[]> {
 }
 
 export async function createUser(prevState: unknown, formData: FormData) {
-  //const data = Object.fromEntries(formData.entries());
-
   const user = {
     nombre: formData.get("nombre") as string,
     apellido: formData.get("apellido") as string,
@@ -45,12 +43,10 @@ export async function createUser(prevState: unknown, formData: FormData) {
 
   const result = UserSchema.safeParse(user);
   if (!result.success) {
-//    console.log(result.error.errors);
     return {
       errors: result.error.format(),
     };
   }
-  //    return { success: true, data };
   users.push(user);
   revalidatePath("/");
 }
